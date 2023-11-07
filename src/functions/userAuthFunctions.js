@@ -9,11 +9,11 @@ async function comparePassword(plaintextPassword, hashedPassword) {
 	return doesPasswordMatch;
 }
 
-async function generateJwt(userId){
+function generateJwt(userId){
 
 	let newJwt = jwt.sign(
 		// Payload
-		userId, 
+		{userId}, 
 
 		// Secret key for server-only verification
 		"insert secret key here",
@@ -30,5 +30,5 @@ async function generateJwt(userId){
 
 
 module.exports = {
-	comparePassword
+	comparePassword, generateJwt
 }
